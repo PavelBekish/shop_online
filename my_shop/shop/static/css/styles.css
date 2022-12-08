@@ -1,0 +1,414 @@
+form {
+  position: relative;
+}
+
+.site-header {
+    margin: 20px 0 20px 0;
+}
+
+.info {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.info-text {
+    padding: 0 0 0 10px;
+    margin-left: 10px;
+}
+
+.info-text a {
+    color: black;
+    text-decoration: none;
+}
+
+.info-text a:hover {
+	color: #0059b2;
+}
+
+.image {
+  width: 150px;
+  height: auto;
+}
+
+.form-label {
+    display: inline-block;
+    min-width: 150px;
+    vertical-align: top;
+}
+
+.category-name {
+    margin: 0 0 0 0;
+    padding: 0 10px 10px;
+}
+
+.form-error {
+    background = red;
+    list-style: none;
+    padding: 0;
+    color: #CC0000;
+}
+
+.categories-icon {
+    flex: 0 0 auto;
+    margin-right: 8px;
+    width: 40px;
+    vertical-align: middle;
+}
+
+.navbar {
+    box-shadow: 3px 3px 3px 3px #d0d0d0;
+}
+
+.navbar-nav {
+    width: 100%;
+    justify-content: space-between;
+}
+
+ul li.selected {color: #9b9b9b; }
+
+.d3 {background: #F9F0DA;}
+.d3 form {
+  background: #A3D0C3;
+}
+.d3 input, .d3 button {
+  border: none;
+  outline: none;
+  background: #f4f4f4;
+}
+.d3 input {
+  width: 100%;
+  height: 42px;
+  padding-left: 15px;
+}
+.d3 button {
+  height: 42px;
+  width: 42px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+}
+.d3 button:before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-size: 16px;
+  color: #ccc;
+}
+
+.last {float: right;}
+
+.list-pages {
+	text-align: center;
+	margin: 0 0 20px 0;
+}
+.list-pages ul {
+	margin: 20px 0 0 0;
+	padding: 0;
+	list-style: none;
+}
+.list-pages ul li {
+	display: inline-block;
+	margin: 0 20px 0 0;
+}
+.list-pages a {
+	color: #000;
+	font-size: 24px;
+	text-decoration: none;
+}
+.list-pages .page-num, .page-num-selected {
+	display: inline-block;
+	width: 60px;
+	height: 44px;
+	border: 1px solid #d0d0d0;
+	border-radius: 30px;
+}
+.list-pages .page-num:hover {
+	box-shadow: 3px 3px 1px #d0d0d0;
+}
+.list-pages .page-num-selected {
+	border: none;
+	color: #000;
+	font-size: 20px;
+}
+.list-pages .page-num-selected:hover {
+	box-shadow: none;
+}
+
+.left-chapters {
+	list-style: none;
+	padding: 0;
+}
+
+.page-header__icon-wrap {
+    position: relative;
+    flex: 0 0 auto;
+    display: -webkit-flex;
+    -webkit-align-items: center;
+    color: #2A2A2A;
+}
+
+.page-header__counter {
+    border-radius: 10px;
+    background-color: #eb2127;
+    font-size: 9px;
+    line-height: 14px;
+    font-weight: 600;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    top: -2px;
+    right: -3px;
+    height: 14px;
+    min-width: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card {
+    border: none;
+    border-radius: 0;
+    height: 380px;
+}
+
+.card:hover {
+    box-shadow: 3px 3px 3px 3px #d0d0d0;
+}
+
+.card img {
+    height: 225px;
+    max-width: 100%
+    margin: auto;
+    object-fit: contain;
+}
+
+.card-body {
+    height: 100px;
+    padding: 10px 0 10px 10px;
+}
+
+.a {
+    text-decoration: none;
+}
+
+.link {
+    text-decoration: none;
+    color: var(--bs-body-color);
+}
+
+.link:hover {
+    color: var(--bs-body-color);
+}
+
+.catalog {
+    display: flex;
+}
+
+.catalog-left {
+    width: 25%;
+}
+
+.catalog-right {
+    width: 70%;
+}
+
+.cart {
+    display: flex;
+}
+
+.cart-left {
+    width: 75%;
+}
+
+.cart-right {
+    width: 25%;
+}
+
+.product-list {
+    display: flex;
+    border-top: 1px solid rgba(0,0,0,.125);
+    padding: 20px;
+}
+
+.product-list-left {
+    padding: 20px;
+    width: 75%;
+    border-right: 1px solid rgba(0,0,0,.125);
+}
+
+.product-list-right {
+    padding: 20px;
+    width: 25%;
+}
+
+.cart-product {
+    display: flex;
+    padding: 20px;
+    border-top: 1px solid rgba(0,0,0,.125);
+}
+
+.cart-product-left {
+    padding: 20px;
+    width: 25%;
+}
+
+.cart-product-right {
+    padding: 20px;
+    width: 75%;
+}
+
+.product-card {
+    display: flex;
+}
+
+.filter {
+    padding: 10px;
+}
+
+.card-btn {
+    margin: 0 0 0 10px;
+}
+
+.product-detail {
+    display: flex;
+    padding: 20px;
+}
+
+.product-detail-left {
+    padding: 20px;
+    width: 25%;
+    border-right: 1px solid rgba(0,0,0,.125);
+}
+
+.product-detail-right {
+    padding: 20px;
+    width: 75%;
+}
+
+.slick-list {
+    overflow: hidden;
+}
+
+.slick-track{
+    height: 400px;
+    display: flex;
+}
+
+.slider {
+    position: relative;
+}
+
+.slider__item {
+    padding: 10px;
+}
+
+.btn {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.navbar-toggler-icon {
+    background-image: url('../images/icon-menu.png');
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+@media (max-width: 1200px) {
+.image {
+        width: auto;
+        height: 150px;
+    }
+}
+
+@media (max-width: 768px) {
+    .catalog {
+        display: ;
+        flex-direction: column;
+    }
+
+    .catalog-left {
+        width: 50%;
+    }
+
+    .catalog-right {
+        width: 80%;
+    }
+
+    .product-list {
+        display: flex;
+        flex-direction: column;
+        border-top: 1px solid rgba(0,0,0,.125);
+        padding: 5px;
+    }
+
+    .product-list-left {
+        padding: 20px;
+        width: 100%;
+        border-right: none;
+    }
+
+    .product-list-right {
+        padding: 20px;
+        width: 100%;
+    }
+
+    .product-detail {
+        display: flex;
+        padding: 5px;
+    }
+
+    .product-detail-left {
+        padding: 5px;
+        width: 35%;
+        border-right: 1px solid rgba(0,0,0,.125);
+    }
+
+    .product-detail-right {
+        padding: 5px;
+        width: 65%;
+    }
+
+    .image {
+        width: auto;
+        height: 130px;
+    }
+
+    .cart {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .cart-left {
+        width: 90%;
+    }
+
+    .cart-right {
+        width: 90%;
+    }
+
+    .cart-product {
+        display: flex;
+        padding: 5px;
+        border-top: 1px solid rgba(0,0,0,.125);
+    }
+
+    .cart-product-left {
+        padding: 5px;
+        width: 35%;
+    }
+
+    .cart-product-right {
+        padding: 5px;
+        width: 65%;
+    }
+}
+
+.basket {
+    fill: black;
+}
+
+.basket:hover {
+    fill: red;
+}
+

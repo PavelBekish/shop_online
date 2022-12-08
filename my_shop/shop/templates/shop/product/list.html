@@ -1,0 +1,102 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block title %}
+{% if category %}
+{{ category.name }}
+{% else %}
+{{ category_group.name }}
+{% endif %}
+{% endblock %}
+{% block content %}
+<h3 class="category-name">
+    {% if category %}
+    {{ category.name }}
+    {% else %}
+    {{ category_group.name }}
+    {% endif %}
+</h3>
+<div class="catalog">
+    <div class="catalog-left">
+        {% if category != None or category_group != None %}
+        <form name="filter" action="{% if category != None %}{% url 'category' category.category_group.slug category.slug %}
+                       {% else %}{% url 'category_group' category_group.slug %}{% endif %}"
+              method="get">
+            <h6>Цена</h6>
+            <p>
+                <input type="number" name="price_from" placeholder="От">
+                <input type="number" name="price_to" placeholder="До {{ max_price.price }}">
+            </p>
+            <ul class="left-chapters">
+                <h6>Бренд</h6>
+                {% for m in manufacturers %}
+                <li>
+                    <input type="checkbox" name="manufacturer" value="{{m.id}}"><span class="filter">{{m.name}}</span>
+                </li>
+                {% endfor %}
+            </ul>
+            <button class="btn btn-primary" type="submit">Найти</button>
+        </form>
+        <form name="filter-reset">
+            <button class="btn btn-primary" formaction=
+                    "{% if category != None %}{% url 'category' category.category_group.slug category.slug %}
+                         {% else %}{% url 'category_group' category_group.slug %}{% endif %}"
+                    type="submit">Сбросить фильтр</button>
+        </form>
+        {% endif %}
+    </div>
+    <div class="catalog-right">
+        {% for product in products %}
+        <div class="product-list">
+            <div class="product-list-left">
+                <a href="{{ product.get_absolute_url }}" class="link">
+                    <h6>{{ product.name }}</h6></a>
+                <div class="product-card">
+                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'images/no-photo.png' %}{% endif %}" alt="product" class="image">
+                    <p class="info-text">{{ product.description }}</p>
+                </div>
+            </div>
+
+            <div class="product-list-right">
+                <div class="info-text">
+                    <p>Цена: {{ product.price }} р.</p>
+                    <form class="form-btn" action="{% url 'cart_add' %}" data-product_id = "{{ product.id }}" method="post">
+                        {% csrf_token %}
+                        <input class="btn btn-primary" type="submit" value="Добавить в корзину">
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% if page_obj.has_other_pages %}
+<nav class="list-pages">
+    <ul>
+        {% if page_obj.has_previous %}
+        <li class="page-num">
+            <a href="?{{q}}{{ filters }}page={{ page_obj.previous_page_number }}">&lt;</a>
+        </li>
+        {% endif %}
+
+        {% for p in paginator.page_range %}
+        {% if page_obj.number == p %}
+        <li class="page-num page-num-selected">{{ p }}</li>
+        {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2  %}
+        <li class="page-num">
+            <a href="?{{q}}{{ filters }}page={{ p }}">{{ p }}</a>
+        </li>
+        {% endif %}
+        {% endfor %}
+
+        {% if page_obj.has_next %}
+        <li class="page-num">
+            <a href="?{{q}}{{ filters }}page={{ page_obj.next_page_number }}">&gt;</a>
+        </li>
+        {% endif %}
+
+    </ul>
+</nav>
+{% endif %}
+
+{% endblock %}

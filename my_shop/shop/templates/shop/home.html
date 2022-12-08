@@ -1,0 +1,27 @@
+{% extends 'shop/base.html' %}
+{% load static %}
+{% block content %}
+{% for category_group in category_groups %}
+<a href="{{ category_group.get_absolute_url }}" class="link">
+    <h3 class="category-name">{{ category_group.name }}</h3></a>
+<div class="slider">
+        {% for product in category_group.products.all %}
+        <div class="slider__item">
+            <div class="card">
+                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static 'images/no-photo.png' %}{% endif %}" alt="product" class="card-img-top">
+                <div class="card-body">
+                    <h6>{{ product.price }} р.</h6>
+                    <a href="{{ product.get_absolute_url }}" class="link"><h7 class="card-title">{{product.name}}</h7></a>
+                </div>
+                <div class="card-btn">
+                    <form class="form-btn" action="{% url 'cart_add' %}" data-product_id = "{{ product.id }}" method="post">
+                        {% csrf_token %}
+                        <input class="btn btn-primary" type="submit" value="Добавить в корзину">
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+</div>
+{% endfor %}
+{% endblock %}
