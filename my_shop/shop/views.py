@@ -1,7 +1,5 @@
 from django.views.generic import ListView, DetailView, TemplateView
-from rest_framework import generics
 from .filters import ProductFilter
-from .serializers import ProductSerializer
 from .utils import DataMixin
 from .models import Category, Product, CategoryGroup, Manufacturer
 from django.contrib.postgres.search import SearchVector, SearchQuery, SearchRank
@@ -87,8 +85,3 @@ class Search(DataMixin, ListView):
         context['q'] = f"q={self.request.GET.get('q')}&"
         c_def = self.get_user_context(title=context['products'])
         return dict(list(context.items()) + list(c_def.items()))
-
-
-class ProductAPIListCreate(generics.ListCreateAPIView):
-    queryset = Product.objects.all()
-    serializer_class = ProductSerializer
